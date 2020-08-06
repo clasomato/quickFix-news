@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="dist/css/custom.min.css">
+	<title>QuickFix News</title>
+</head>
+<body>
+	<div class="loadingGIFContainer" id="loading" style="display:flex; align-items:center; justify-content:center; width:100%; height:100vh; position:absolute; top:0; left:0; z-index:-100;">
+		<img src="loading.gif" alt=""  width="50%">
+	</div>
+	<div id="app" v-if="weather">
+
+
+		<!-- Top navigation STARTS -->
+		<nav class="navbar navbar-light bg-primary justify-content-between">
+		  <a class="navbar-brand logo text-white">QuickFix News</a>
+			<a style="color:white" ><img src="" v-bind:src="weatherIcon" alt="" width="20%;">  {{ weather.current.temp.toFixed(0) }}°C  / {{ weather.current.weather[0].description }}</a>
+
+		<div class="d-flex align-content-center">
+			<div class="dropdown">
+				<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-transform:capitalize">
+				{{newsCatagory.catagory}}
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" @click="business()">Business</a>
+					<a class="dropdown-item" @click="entertainment()">Entertainment</a>
+					<a class="dropdown-item" @click="general()">General</a>
+					<a class="dropdown-item" @click="health()">Health</a>
+					<a class="dropdown-item" @click="science()">Science</a>
+					<a class="dropdown-item" @click="sports()">Sport</a>
+					<a class="dropdown-item" @click="technology()">Technology</a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-transform:uppercase">
+				{{newsCatagory.country}}
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" @click="usCatagory()">United States</a>
+					<a class="dropdown-item" @click="ausCatergory()">Australia</a>
+					<a class="dropdown-item" @click="nzCatergory()">New Zealand</a>
+					<a class="dropdown-item" @click="canCatergory()">Canada</a>
+					<a class="dropdown-item" @click="ukCatergory()">United Kingdom</a>
+					<a class="dropdown-item" @click="singCatergory()">Singapore</a>
+					<a class="dropdown-item" @click="frCatergory()">France</a>
+				</div>
+			</div>
+			<!-- <form class="form-inline"> -->
+			   <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchBar" v-on:keyup.enter="search">
+			   <button class="btn btn-success my-2 my-sm-0" @click="search()" v-on:keyup.13="search">Search</button>
+			<!-- </form> -->
+		</div>
+
+		</nav>
+		<!-- Top navigation ENDS -->
+
+		<!-- News list coloumns STARTS -->
+		<div class="container news-container">
+			<!-- Row STARTS -->
+			<div class="row">
+				<!-- column ONE -->
+				<div class="col-12 col-sm-12 col-md-6">
+					<ul class="">
+						<li v-for="item in news.slice(0, 9)" :key="item.message">
+							<img src="" alt="" v-bind:src='item.urlToImage' width="100%"> <br>
+							<h2>{{ item.title }}</h2>
+							<h3>{{ item.author }}</h3>
+							<a v-bind:href="item.url" target="_blank">View Article</a>
+						</li>
+					</ul>
+				</div>
+				<!-- colomn TWO -->
+				<div class="col-12 col-sm-12 col-md-6">
+					<ul>
+						<li v-for="item in news.slice(10, 19)" :key="item.message">
+							<img src="" alt="" v-bind:src='item.urlToImage' width="100%"> <br>
+							<h2>{{ item.title }}</h2>
+							<h3>{{ item.author }}</h3>
+							<a v-bind:href="item.url" target="_blank">View Article</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- News list coloumns ENDS -->
+
+
+	</div>
+	<!-- App ENDS -->
+
+
+
+
+
+
+
+
+
+<!-- <div class="news-app" id="app"> -->
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="dist/js/bundle.js"></script>
+</body>
+</html>

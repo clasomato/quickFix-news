@@ -1,0 +1,36 @@
+// Custom sass ..
+
+// Top nav
+.logo {
+    font-weight: bolder;
+    font-size: 25px;
+}
+.dropdown {
+    margin-right: 10px;
+}
+
+// News List
+.news-container {
+    margin-top: 40px;
+}
+ul {
+    padding: 10px !important;
+}
+li {
+    list-style:none;
+    margin-bottom:5%;
+    width:100%;
+    border-bottom:2px solid darkgrey;
+}
+
+// Footer
+.footer-icon-container {
+    width: 50%;
+}
+.page-footer {
+    padding-bottom: 30px;
+}
+.footer-blurb {
+    padding-bottom: 20px;
+}
+// custom sass and css
